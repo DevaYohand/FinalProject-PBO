@@ -1,0 +1,49 @@
+public abstract class Tiket {
+
+    protected String nama, alamat, jenis, berangkat, tujuan;
+    protected int bookingFee;
+
+    public Tiket(String nama, String alamat, String jenis,
+                 int bookingFee, String berangkat, String tujuan) {
+        this.nama = nama;
+        this.alamat = alamat;
+        this.jenis = jenis;
+        this.bookingFee = bookingFee;
+        this.berangkat = berangkat;
+        this.tujuan = tujuan;
+    }
+
+    protected int getHargaAwal() {
+        switch (jenis) {
+            case "Mobil":
+                return 400000;
+            case "Kereta":
+                return 150000;
+            case "Bus":
+                return 100000;
+            case "Kapal":
+                return 300000;
+            case "Pesawat":
+                return 800000;
+            default:
+                return 0;
+        }
+    }
+
+    public abstract int hitungHarga();
+
+    public String getDataTiket() {
+        return "===== DATA TIKET =====\n"
+                + "Nama        : " + nama + "\n"
+                + "Alamat      : " + alamat + "\n"
+                + "Jenis Tiket : " + jenis + "\n"
+                + "Berangkat   : " + berangkat + "\n"
+                + "Tujuan      : " + tujuan + "\n"
+                + "Booking Fee : Rp " + bookingFee + "\n"
+                + "Total Bayar : Rp " + hitungHarga();
+    }
+}
+
+
+
+
