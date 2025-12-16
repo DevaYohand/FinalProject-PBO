@@ -14,21 +14,20 @@ public abstract class Tiket {
     }
 
     protected int getHargaAwal() {
-        switch (jenis) {
-            case "Mobil":
-                return 400000;
-            case "Kereta":
-                return 150000;
-            case "Bus":
-                return 100000;
-            case "Kapal":
-                return 300000;
-            case "Pesawat":
-                return 800000;
-            default:
-                return 0;
-        }
+    if (jenis.equals("Mobil")) {
+        return 400000;
+    } else if (jenis.equals("Kereta")) {
+        return 150000;
+    } else if (jenis.equals("Bus")) {
+        return 100000;
+    } else if (jenis.equals("Kapal")) {
+        return 300000;
+    } else if (jenis.equals("Pesawat")) {
+        return 800000;
+    } else {
+        return 0;
     }
+}
 
     public abstract int hitungHarga();
 
@@ -43,7 +42,5 @@ public abstract class Tiket {
                 + "Total Bayar : Rp " + hitungHarga();
     }
 }
-
-
 
 
