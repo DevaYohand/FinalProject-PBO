@@ -1,0 +1,13 @@
+public class TiketKapal extends Tiket {
+
+    public TiketKapal(String nama, String alamat, String jenis,
+                      int bookingFee, String berangkat, String tujuan) {
+        super(nama, alamat, jenis, bookingFee, berangkat, tujuan);
+    }
+
+    @Override
+    public int hitungHarga() {
+        int hargaRute = 150000;
+        return getHargaAwal() + hargaRute - bookingFee;
+    }
+}
