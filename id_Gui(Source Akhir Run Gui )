@@ -12,7 +12,6 @@ public class id extends javax.swing.JFrame {
     public id() {
         initComponents();
 
-        // --- EVENT TOMBOL SELESAI ---
         jToggleButton1.addActionListener(e -> {
 
             String nama = jTextField1.getText();
@@ -43,23 +42,18 @@ public class id extends javax.swing.JFrame {
   
             Tiket t = null;
 
-            switch (jenis) {
-                case "Kereta":
-                    t = new TiketKereta(nama, alamat, jenis, bookingFee, berangkat, tujuan);
-                    break;
-                case "Pesawat":
-                    t = new TiketPesawat(nama, alamat, jenis, bookingFee, berangkat, tujuan);
-                    break;
-                case "Bus":
-                    t = new TiketBus(nama, alamat, jenis, bookingFee, berangkat, tujuan);
-                    break;
-                case "Kapal":
-                    t = new TiketKapal(nama, alamat, jenis, bookingFee, berangkat, tujuan);
-                    break;
-                case "Mobil":
-                    t = new Mobil(nama, alamat, jenis, bookingFee, berangkat, tujuan);
-                    break;
-            }
+           if ("Kereta".equals(jenis)) {
+                t = new TiketKereta(nama, alamat, jenis, bookingFee, berangkat, tujuan);
+           } else if ("Pesawat".equals(jenis)) {
+                t = new TiketPesawat(nama, alamat, jenis, bookingFee, berangkat, tujuan);
+           } else if ("Bus".equals(jenis)) {
+                t = new TiketBus(nama, alamat, jenis, bookingFee, berangkat, tujuan);
+           } else if ("Kapal".equals(jenis)) {
+                t = new TiketKapal(nama, alamat, jenis, bookingFee, berangkat, tujuan);
+           } else if ("Mobil".equals(jenis)) {
+                t = new Mobil(nama, alamat, jenis, bookingFee, berangkat, tujuan);
+           }
+
 
             if (t != null) {
                 JOptionPane.showMessageDialog(this,
@@ -74,24 +68,6 @@ public class id extends javax.swing.JFrame {
             }
         });
     }
-
-  
-    private int hitungHarga(String berangkat, String tujuan) {
-        if (berangkat.equals("Solo") && tujuan.equals("Jogja")) return 50000;
-        if (berangkat.equals("Jogja") && tujuan.equals("Solo")) return 60000;
-
-        if (berangkat.equals("Solo") && tujuan.equals("Ngawi")) return 60000;
-        if (berangkat.equals("Ngawi") && tujuan.equals("Solo")) return 65000;
-
-        if (berangkat.equals("Solo") && tujuan.equals("Klaten")) return 30000;
-        if (berangkat.equals("Klaten") && tujuan.equals("Solo")) return 35000;
-
-        if (berangkat.equals("Jogja") && tujuan.equals("Riau")) return 250000;
-
-        return 0;
-    }
-
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
