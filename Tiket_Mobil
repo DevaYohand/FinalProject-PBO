@@ -1,0 +1,13 @@
+public class Mobil extends Tiket {
+
+    public Mobil(String nama, String alamat, String jenis,
+                 int bookingFee, String berangkat, String tujuan) {
+        super(nama, alamat, jenis, bookingFee, berangkat, tujuan);
+    }
+
+    @Override
+    public int hitungHarga() {
+        int hargaRute = 60000; 
+        return getHargaAwal() + hargaRute - bookingFee;
+    }
+}
